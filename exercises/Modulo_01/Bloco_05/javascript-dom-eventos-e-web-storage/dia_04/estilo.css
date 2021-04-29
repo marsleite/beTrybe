@@ -1,0 +1,22 @@
+* {
+    margin: 0px;
+  }
+  header {
+    padding: 50px;
+  }
+  h1 {
+    text-align: center;
+  }
+  .main-content {
+    padding: 120px;
+  }
+  footer {
+    text-align: center;
+    padding: 50px;
+    height: 20px;
+  }
+  .dark-mode {
+    background-color: #212529;
+    color: #899095;
+  }
+  
