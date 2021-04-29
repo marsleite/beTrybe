@@ -1,0 +1,12 @@
+O que eu vou aprender na Trybe:
+
+- Unix
+- Bash
+- Git
+- HTML
+- CSS
+- JavaScript
+- Git
+- Github
+- React
+- Node.Js
