@@ -1,0 +1,53 @@
+html {
+    box-sizing: border-box;
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+  
+  body {
+    margin: 20px;
+  }
+  
+  h2 {
+    margin-bottom: 10px;
+  }
+  
+  img {
+    margin-top: 50px;
+    max-width: 100%;
+  }
+  
+  figure {
+    margin: 5px;
+  }
+  
+  @media screen and (max-width:964px) {
+    body {
+      font-size: 30px;
+      margin: 25px 6%;
+    }
+  
+    h1 {
+      font-size: 20px;
+    }  
+  }
+  
+  @media screen and (min-width: 964px) {
+    body {
+      background: rgba(0,0,255,.2);
+      font-size: 20px;
+    }
+  
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+    }      
+  }
+  
+  @media screen and (min-width: 1426px) {
+    body {
+      background-color: #ccc;
+      max-width: 1450px;
+    }
+  }
