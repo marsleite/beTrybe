@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Exercício 5.2</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <script>
+      let firstFather = document.querySelector('body');
+
+      function createElementsDom(el) {
+        let element = document.createElement(el);
+        return element;
+      }
+
+      //1 -
+      let firstTitle = firstFather.appendChild(createElementsDom('h1'));
+      firstTitle.innerHTML = 'Exercício 5.2 - JavaScript DOM';
+      //2 -
+      let div1 = firstFather.appendChild(createElementsDom('div'));
+      div1.className = 'main-content';
+      //3 -
+      let div2 = div1.appendChild(createElementsDom('div'));
+      div2.className = 'center-content';
+      //4 -
+      let paragraph1 = div2.appendChild(createElementsDom('p'));
+      paragraph1.innerHTML = 'Aprendendo a utilizar o DOM com o JavaScript';
+      //5 -
+      let div3 = div1.appendChild(createElementsDom('div'));
+      div3.className = 'left-content';
+      //6 -
+      let div4 = div1.appendChild(createElementsDom('div'));
+      div4.className = 'right-content';
+      //7 -
+      let image1 = div3.appendChild(createElementsDom('img'));
+      image1.src = 'https://picsum.photos/200';
+      image1.className = 'small-image';
+      //8 -
+      let list1 = div4.appendChild(createElementsDom('ul'));
+      function writeItemList() {
+        let ListArray = ['Um', 'Dois', 'Três', 'Quatro', 'Cinco', 'Seis', 'Sete', 'Oito', 'Nove', 'Dez'];
+        for(let index = 0; index < ListArray.length; index += 1) {
+          let itemList = list1.appendChild(createElementsDom('li'));
+          itemList.innerHTML = ListArray[index];
+        }
+      }
+      writeItemList();
+      //9 -
+      let subTitle1 = div1.appendChild(createElementsDom('h3'));
+      let subTitle2 = div1.appendChild(createElementsDom('h3'));
+      let subTitle3 = div1.appendChild(createElementsDom('h3'));
+      
+      // Parte 2 do exercicio
+      //1 -
+      firstTitle.className = 'title';
+      //2 -
+      subTitle3.className = 'description';
+      //3 - 
+      div3.parentNode.removeChild(div3);
+      //4 -
+      div4.style.marginRight = 'auto';
+      //5 -
+      div1.style.backgroundColor = 'magenta';
+      
+
+    </script>
+  </body>
+</html>
