@@ -10,7 +10,12 @@ function sum(a, b) {
 
 // implemente seus testes aqui
 
-const expected = sum(4, 5);
-const otherExpec = sum(0, 0);
-assert.strictEqual(expected, 9, "Quatro mais cinco igual a nove");
-assert.strictEqual(otherExpec, 0, "Zero mais zero é igual a zero");
+assert.strictEqual(typeof sum, 'function');
+assert.strictEqual(sum(4, 5), 9);
+assert.strictEqual(sum(0, 0), 0);
+assert.throws(() => {
+  sum(4, '5');
+})
+assert.throws(() => {
+  sum(4, '5');
+}, /^Error: parameters must be numbers$/);
