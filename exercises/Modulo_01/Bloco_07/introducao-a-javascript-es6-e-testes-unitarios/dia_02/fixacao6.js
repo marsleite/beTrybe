@@ -1,4 +1,4 @@
-onst person = {
+const person = {
     name: 'Roberto',
   };
   
