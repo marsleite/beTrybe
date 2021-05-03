@@ -59,8 +59,27 @@ const gameActions = {
     warrior.damage = warriorDamage;
     dragon.healthPoints -= warriorDamage;
   },
+  mageTurn: (mageAttack) => {
+    const mageTurnStats = mageAttack();
+    const mageDamage = mageTurnStats.damageDealt;
+    const { manaSpent } = mageTurnStats;
+    mage.damage = mageDamage;
+    mage.mana -= manaSpent;
+    dragon.healthPoints -= mageDamage;
+  },
+  dragonTurn: (dragonAttack) => {
+    const dragonDamage = dragonAttack();
+    dragon.damage = dragonDamage;
+    warrior.healthPoints -= dragonDamage;
+    mage.healthPoints -= dragonDamage;
+  },
+  turnResults: () => battleMembers,
 };
 gameActions.warriorTurn(warriorAttack);
+gameActions.mageTurn(mageAttack);
+gameActions.dragonTurn(dragonAttack);
+
+console.log(gameActions.turnResults());
 
 
 
