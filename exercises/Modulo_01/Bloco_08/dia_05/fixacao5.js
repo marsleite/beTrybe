@@ -5,4 +5,4 @@ const saudacoes = ['Olá', (saudacao) => console.log(saudacao)];
 // Produza o mesmo resultado acima, porém utilizando array destructuring
 
 const [msg, fun] = saudacoes;
-fun(msg);
+fun(msg)
