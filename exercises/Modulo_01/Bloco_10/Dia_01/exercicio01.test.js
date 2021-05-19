@@ -1,5 +1,6 @@
 const { test, expect } = require('@jest/globals');
-const sum = require('.');
+const sum = require('.')
+const myRemove = require('.')
 
 describe('sum', () => {
   test('4 plus 5 equals 9', () => {
