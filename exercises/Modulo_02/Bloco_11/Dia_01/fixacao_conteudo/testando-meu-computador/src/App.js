@@ -1,10 +1,8 @@
-import './App.css';
-import helloWords from './helloWord'
+import React from 'react'
+import hellos from './helloWord'
 
 function App() {
-  return (
-    <helloWords />
-  );
+  return <hellos />
 }
 
 export default App;
