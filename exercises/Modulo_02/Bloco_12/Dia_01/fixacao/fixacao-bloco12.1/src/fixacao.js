@@ -4,19 +4,28 @@ class HandleClick extends React.Component {
 
   constructor() {
     super()
-
     this.handleClick = this.handleClick.bind(this)
+
+    this.state = {
+      numeroDeclick: 0
+    }
   }
 
   handleClick() {
-    console.log(this)
-    console.log('Clicou!')
+    this.setState((estadoAnterior) => ({
+      numeroDeclick: estadoAnterior.numeroDeclick + 1
+    }))
   }
 
   render() {
+    console.log(this)
     return(
-      console.log(this),
-      <button onClick={this.handleClick}>Meu botão</button>
+      <div className="App-two">
+        <div>
+          <span>{this.state.numeroDeclick}</span>
+        </div>
+        <button onClick={this.handleClick}>Meu botão</button>
+      </div>
     )
   }
 }
