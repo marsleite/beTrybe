@@ -15,12 +15,17 @@ class DadJoke extends Component {
   }
 
   async fetchJoke() {
-    const requestHeaders = { headers: { Accept: 'application/json' } }
-    const requestReturn = await fetch('https://icanhazdadjoke.com/', requestHeaders)
-    const requestObject = await requestReturn.json();
-    this.setState({
-      jokeObj: requestObject,
-    })
+    this.setState(
+      { loading: true }, // Primeiro parâmetro da setState()!
+      async () => {
+      const requestHeaders = { headers: { Accept: 'application/json' } }
+      const requestReturn = await fetch('https://icanhazdadjoke.com/', requestHeaders)
+      const requestObject = await requestReturn.json();
+      this.setState({
+        loading: false,
+        jokeObj: requestObject
+      });
+    });
   }
 
   componentDidMount() {
@@ -28,7 +33,10 @@ class DadJoke extends Component {
   }
 
   saveJoke() {
-    console.log('Salvar Piada')
+    this.setState(({ storedJokes, jokeObj }) => ({
+      storedJokes: [...storedJokes, jokeObj]
+    }))
+    this.fetchJoke()
   }
   
   
@@ -47,13 +55,15 @@ class DadJoke extends Component {
   }
 
   render() {
-    const { storedJokes } = this.state;
+    const { storedJokes, loading } = this.state;
     const loadingElement = <span>Loading...</span>
     return (
       <div>
         <span>
           { storedJokes.map(({ id, joke }) => (<p key={ id }>{ joke }</p>)) }
         </span>
+        
+        <p>{ loading ? loadingElement : this.renderJokeElement() }</p>
       </div>
     )
   }
