@@ -16,3 +16,8 @@ class SalesReport():
                 'Coluna 2': 'Dado B',
                 'Coluna 3': 'Dado C'
                 }]
+
+
+    def serialize(self):
+        with open(self.export_file,'w') as file:
+            json.dump(self.build(), file)
