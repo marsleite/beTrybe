@@ -1,8 +1,13 @@
+from abc import abstractmethod
+import csv
 import json
+import csv
+
 
 class SalesReport():
     def __init__(self, export_file):
-        self.export_file = export_file + '.json'
+        self.export_file = export_file
+
 
 
     def build(self):
@@ -17,7 +22,16 @@ class SalesReport():
                 'Coluna 3': 'Dado C'
                 }]
 
+    @abstractmethod
+    def serialize(self):
+        raise NotImplementedError
+
 
     def serialize(self):
         with open(self.export_file,'w') as file:
             json.dump(self.build(), file)
+
+    class SalesReportJSON(SalesReport):
+        def serialize(self):
+            with open(self.export_file + '.json', 'w') as file:
+                json.dump(self.build(), file)
